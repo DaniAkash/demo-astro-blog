@@ -1,0 +1,19 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+const posts = await Astro.glob('./post/*.md');
+---
+
+<MainLayout frontmatter={{title: "Dani Akash", description: "Posts List"}}>
+    <h1>Posts List!</h1>
+    <div>
+        {posts.map(post => {
+            return (
+                <article>
+                    <h2>{post.frontmatter.title}</h2>
+                    <p>{post.frontmatter.description}</p>
+                    <a href={post.url}>Read more</a>
+                </article>
+            )
+        })}
+    </div>
+</MainLayout>

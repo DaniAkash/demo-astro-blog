@@ -1,0 +1,35 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+const { frontmatter } = Astro.props
+const { title, description } = frontmatter
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>"></link>
+        <meta name="msapplication-TileColor" content="#062959" />
+        <meta name="theme-color" content="#062959" />
+        <title>{title}</title>
+        {
+            description &&
+                <meta name="description" content={description} />
+                <meta property="og:description" content={description} />
+        }
+	</head>
+	<body>
+		<Header />
+		<main>
+			<!-- All the content goes here... -->
+            <slot/>
+		</main>
+		<Footer />
+	</body>
+</html>
